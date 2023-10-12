@@ -1,0 +1,59 @@
+Feature: New account
+  
+  Background: 
+    Given Chrome browser ver 27 or newer is open
+    And User is on main page
+    And User login as manager
+    And Customer id exists with value 61388
+    And Initial deposit is 500
+
+  Scenario: Creating new savings bank account with correct id and deposit value
+    When User clicks new account tab button
+    And User fills customer id input with "61388"
+    And User selects savings on dropdown list
+    And User fills initial deposit with "500"
+    And User clicks on submit button
+    Then Bank account created
+
+--------------------------------------------------------------------------------
+
+Feature: Delete customer
+
+  Background: 
+    Given Chrome browser ver 27 or newer is open
+    And User is on main page
+    And User login as manager
+    And Customer created by login manager
+    And Customer id exists with value 82906
+    And Customer has not bank account
+
+  Scenario: Deleting customer with correct id
+    When User cilcks delete customer tab button
+    And User fills customer id input with "82906"
+    And User clicks submit button
+    Then Customer deleted
+
+---------------------------------------------------------------------------------
+
+Feature: Delete account 
+
+  Background: 
+    Given Chrome browser ver 27 or newer is open
+    And User is on main page
+    And User login as manager
+    And Bank account created by login manager
+    And Account number exists with value 127483
+    
+
+  Scenario: Deleting bank account with correct account number
+    When User cliks delete customer tab button
+    And User fills "account no" input with "127483"
+    And User clicks submit button
+    Then Bank account deleted
+     
+
+  
+  
+  
+
+  
